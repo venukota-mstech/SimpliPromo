@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SimpliPromo.Entities;
 
 namespace SimpliPromo.Migrations
 {
     [DbContext(typeof(SimpliPromoDbContext))]
-    partial class SimpliPromoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200315173332_SimpliPromo_Roles")]
+    partial class SimpliPromo_Roles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -57,22 +59,6 @@ namespace SimpliPromo.Migrations
                     b.HasKey("PersonId");
 
                     b.ToTable("Persons");
-                });
-
-            modelBuilder.Entity("SimpliPromo.Entities.PersonRole", b =>
-                {
-                    b.Property<int>("PersonRoleId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PersonId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RoleId")
-                        .HasColumnType("int");
-
-                    b.HasKey("PersonRoleId");
-
-                    b.ToTable("PersonRole");
                 });
 
             modelBuilder.Entity("SimpliPromo.Entities.Role", b =>
