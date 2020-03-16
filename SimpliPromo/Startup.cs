@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using SimpliPromo.Entities;
+using SimpliPromo.ViewModels;
 
 namespace SimpliPromo
 {
@@ -39,7 +40,7 @@ namespace SimpliPromo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddApplicationInsightsTelemetry(Configuration);
-            services.AddDbContext<SimpliPromoDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+            services.AddDbContext<ProfileContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
             services.AddMvc(options=>options.EnableEndpointRouting=false);
             services.AddRazorPages();
             
