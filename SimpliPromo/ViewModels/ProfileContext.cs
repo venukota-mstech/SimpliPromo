@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using SimpliPromo.Models;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SimpliPromo.ViewModels
 {
-    public class ProfileContext:DbContext
+    public class ProfileContext:IdentityDbContext<ApplicationUser>
     {
         public ProfileContext(DbContextOptions<ProfileContext> options):base(options)
         {   
